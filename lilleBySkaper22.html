@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LilleBySkaper22</title>
+    <link rel="stylesheet" href="lilleBySkaper.css" type="text/css">
+  
+    
+</head>
+<body>
+    
+    <h3>Bygg din egen by</h3>
+    
+    <button id="add-building-2-btn"><img src="images/building-2.png">5000</button>
+    <button id="add-building-3-btn"><img src="images/building-3.png">15000</button>
+    <button id="add-warrior-1-btn"><img src="images/warrior-1.jpg" widht="100px">1000</button>
+
+    <div id="currency-output"></div>
+    <div id="city-output"></div>
+
+    <script>
+
+        /*
+            ***
+            HTML objects
+            ***
+        */
+        
+        var addBuilding2Btn = document.getElementById("add-building-2-btn");
+        var addBuilding3Btn = document.getElementById("add-building-3-btn");
+        var addWarrior1Btn = document.getElementById("add-warrior-1-btn");
+
+        var currencyOutput = document.getElementById("currency-output");
+        var cityOutput = document.getElementById("city-output");
+
+        /*
+            ***
+            Variables
+            ***
+        */
+
+        var currency= 50000;
+        var building2Price = 5000;
+        var building3Price = 15000;
+        var warriorPrice = 1000;
+
+        /*
+            ***
+            Functions
+            ***
+        */
+       function addBuidling2(){
+            if (currency >= building2Price){
+
+            currency = currency - building2Price; //-=5000; betyr altså det samme, men vi har brukt en forkortet måte
+            cityOutput.innerHTML += `<img src="images/building-2.png">`;  //+= BETYR LEGG TIL, MENS = BETYR ERSTATT
+            showCurrency();
+
+            }else{
+                alert("Beklager, din konto er tom! Drep en sopp for å tjene mer penger!");
+            }
+           
+       }
+
+       function addBuilding3(){
+            if (currency >= building3Price){
+
+            cityOutput.innerHTML += `<img src="images/building-3.png">`;
+            currency = currency - building3Price;
+            showCurrency();       
+        
+            }else{
+                alert("Beklager, din konto er tom! Drep en sopp for å tjene mer penger!");
+            }
+            
+       }
+
+       function addWarrior1(){
+            if (currency>=warriorPrice){
+            cityOutput.innerHTML += `<img src="images/warrior-1.jpg">`;
+            currency = currency - warriorPrice;
+            showCurrency();
+
+            }else{
+                alert("Beklager, din konto er tom! Drep en sopp for å tjene mer penger!");
+            }
+    
+       }
+       
+        function showCurrency(){
+        currencyOutput.innerHTML = `<p>Du har ${currency} currency i din lommebok!</p>`; //embedded expression ${}
+       }
+
+       /*
+            ***
+            Events
+             ***
+       */
+       showCurrency();
+       addBuilding2Btn.onclick = addBuidling2;
+       addBuilding3Btn.onclick = addBuilding3;
+       addWarrior1Btn.onclick = addWarrior1;
+
+    </script>
+
+</body>
+</html>
+

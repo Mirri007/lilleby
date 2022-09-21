@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oppgave3</title>
+</head>
+<body>
+    <h1>Hvor mange byer i Europa kan du?</h1>
+
+    <button onclick=myFunction()>Legg til by</button>
+
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        function myFunction(){
+            var city = prompt("Tast inn byer i Europa")
+            listNode = document.getElementById('list'),
+            liNode = document.createElement("LI"),
+            txtNode = document.createTextNode(city);
+            liNode.appendChild(txtNode);
+            listNode.appendChild(liNode);  
+       }
+    </script>
+</body>
+
